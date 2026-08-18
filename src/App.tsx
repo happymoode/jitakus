@@ -27,6 +27,13 @@ function parseLocationToState(): { category: NavView; articleSlug: string | null
   let rawPath = window.location.pathname.replace(/\/+$/, '') || '/';
   let rawHash = window.location.hash.replace(/^#\/?/, '');
 
+  // Handle GitHub Pages SPA redirection param (?p=/path)
+  const urlParams = new URLSearchParams(window.location.search);
+  const pParam = urlParams.get('p');
+  if (pParam) {
+    rawPath = pParam;
+  }
+
   try {
     rawPath = decodeURIComponent(rawPath);
     rawHash = decodeURIComponent(rawHash);
