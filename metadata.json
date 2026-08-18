@@ -1,0 +1,6 @@
+{
+  "name": "自宅 (jitakus.com)",
+  "description": "自宅でできること・仕事・運動・暮らしをわかりやすく解説する自宅生活総合ポータル",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
