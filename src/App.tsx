@@ -22,7 +22,7 @@ import { TermsOfService } from './components/TermsOfService';
 import { HomeGuideContent } from './components/HomeGuideContent';
 import { getJapaneseSlug, resolveCanonicalSlug } from './data/slugHelper';
 
-// Helper to parse path / hash into state
+// Helper to parse path / hash into state (supports root domain & GitHub Pages subpaths)
 function parseLocationToState(): { category: NavView; articleSlug: string | null } {
   let rawPath = window.location.pathname.replace(/\/+$/, '') || '/';
   let rawHash = window.location.hash.replace(/^#\/?/, '');
@@ -37,8 +37,8 @@ function parseLocationToState(): { category: NavView; articleSlug: string | null
   // Check path or hash
   const effective = rawHash ? `/${rawHash}` : rawPath;
 
-  // Blog & Article routing: /blog/:slug, /word/:slug, /article/:slug
-  const blogMatch = effective.match(/^\/(?:blog|word|article)\/([^/?#]+)/);
+  // Blog & Article routing: /blog/:slug, /word/:slug, /article/:slug (supports subdirectories like /reponame/blog/:slug)
+  const blogMatch = effective.match(/(?:^|\/)(?:blog|word|article)\/([^/?#]+)/);
   if (blogMatch) {
     const rawSlug = blogMatch[1];
     const resolvedSlug = resolveCanonicalSlug(rawSlug);
@@ -46,22 +46,22 @@ function parseLocationToState(): { category: NavView; articleSlug: string | null
   }
 
   // Category routing: /category/:cat
-  const categoryMatch = effective.match(/^\/category\/([a-zA-Z0-9_-]+)/);
+  const categoryMatch = effective.match(/(?:^|\/)category\/([a-zA-Z0-9_-]+)/);
   if (categoryMatch) {
     const cat = categoryMatch[1] as NavView;
     return { category: cat, articleSlug: null };
   }
 
   // Tool routing: /tool/:toolName
-  if (effective.startsWith('/tool/distance')) return { category: 'nav-tool', articleSlug: null };
-  if (effective.startsWith('/tool/work')) return { category: 'work-tool', articleSlug: null };
-  if (effective.startsWith('/tool/ai-advisor')) return { category: 'ai-advisor', articleSlug: null };
+  if (effective.includes('/tool/distance')) return { category: 'nav-tool', articleSlug: null };
+  if (effective.includes('/tool/work')) return { category: 'work-tool', articleSlug: null };
+  if (effective.includes('/tool/ai-advisor')) return { category: 'ai-advisor', articleSlug: null };
 
   // Static / Legal pages
-  if (effective === '/about') return { category: 'about', articleSlug: null };
-  if (effective === '/privacy') return { category: 'privacy', articleSlug: null };
-  if (effective === '/terms') return { category: 'terms', articleSlug: null };
-  if (effective === '/contact') return { category: 'contact', articleSlug: null };
+  if (effective.endsWith('/about')) return { category: 'about', articleSlug: null };
+  if (effective.endsWith('/privacy')) return { category: 'privacy', articleSlug: null };
+  if (effective.endsWith('/terms')) return { category: 'terms', articleSlug: null };
+  if (effective.endsWith('/contact')) return { category: 'contact', articleSlug: null };
 
   // Default Home
   return { category: 'all', articleSlug: null };
@@ -93,11 +93,17 @@ function pushUrlSlug(category: NavView, articleSlug: string | null) {
   }
 
   try {
-    if (window.location.pathname !== targetPath) {
-      window.history.pushState({ category, articleSlug }, '', targetPath);
+    // If hosted on GitHub Pages subfolder (e.g. /my-repo/), keep base
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    const hasSubfolder = pathParts.length > 0 && !['blog', 'word', 'article', 'category', 'tool', 'about', 'privacy', 'terms', 'contact'].includes(pathParts[0]);
+    const basePath = hasSubfolder ? `/${pathParts[0]}` : '';
+    const fullTarget = `${basePath}${targetPath}`;
+
+    if (window.location.pathname !== fullTarget) {
+      window.history.pushState({ category, articleSlug }, '', fullTarget);
     }
   } catch {
-    // Fallback if sandboxed iframe restricts pushState
+    // Fallback if pushState fails or is restricted
     try {
       window.location.hash = targetPath;
     } catch (e) {
