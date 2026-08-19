@@ -233,8 +233,8 @@ export default function App() {
 
   // Sync document.title, meta description, and canonical dynamically for target keyword: 自宅
   useEffect(() => {
-    let title = '自宅 (jitakus.com) - 自宅でできること・仕事・運動・暮らし総合ポータル';
-    let description = '【自宅総合ポータル jitakus.com】「自宅」の意味や使い方、自宅でできること・趣味・暇つぶし、自宅でできる仕事・内職・在宅ワーク、自宅での運動・筋トレから距離計算まで分かりやすく解説。安心で快適な自宅生活とおうち時間をサポートします。';
+    let title = '自宅 - 仕事 運動';
+    let description = '【自宅 (jitakus.com)】自宅での仕事・内職・在宅ワーク、自宅での運動・筋トレ、できることや暮らしを分かりやすく解説。安心で快適な自宅生活とおうち時間をサポートします。';
     let canonicalUrl = 'https://jitakus.com/';
 
     if (currentArticle) {
