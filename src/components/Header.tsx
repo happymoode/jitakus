@@ -86,39 +86,6 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-stone-200 text-stone-800">
-      {/* Top Utility Bar (Contact info & Trust links) */}
-      <div className="bg-stone-900 text-stone-300 text-[11px] py-1 px-4 sm:px-6 hidden sm:block border-b border-stone-800">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <span>自宅生活・在宅ワーク・おうち時間総合情報ポータル</span>
-            <span className="text-stone-600">|</span>
-            <span className="text-stone-400">サポート窓口: <strong className="text-emerald-400 font-mono">info@jitakus.com</strong></span>
-          </div>
-          <div className="flex items-center gap-3">
-            <button 
-              onClick={() => onSelectCategory('about')}
-              className="hover:text-white transition cursor-pointer"
-            >
-              当サイトについて
-            </button>
-            <span>•</span>
-            <button 
-              onClick={() => onSelectCategory('privacy')}
-              className="hover:text-white transition cursor-pointer"
-            >
-              プライバシーポリシー
-            </button>
-            <span>•</span>
-            <button 
-              onClick={() => onSelectCategory('contact')}
-              className="text-amber-300 hover:text-amber-200 font-medium transition cursor-pointer"
-            >
-              お問い合わせ
-            </button>
-          </div>
-        </div>
-      </div>
-
       {/* Main Header Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between gap-3">
         {/* Brand Logo (Always links to home) */}
