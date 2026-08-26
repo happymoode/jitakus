@@ -37,37 +37,53 @@ export const Footer: React.FC<FooterProps> = ({ onSelectCategory }) => {
 
           {/* Official Trust & Legal Navigation Links */}
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm">
-            <button
-              onClick={() => onSelectCategory('about')}
+            <a
+              href="/about"
+              onClick={(e) => {
+                e.preventDefault();
+                onSelectCategory('about');
+              }}
               className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-stone-800/80 hover:bg-stone-800 text-stone-300 hover:text-white border border-stone-700/60 transition cursor-pointer"
             >
               <Info className="w-4 h-4 text-emerald-400" />
               <span>当サイトについて（About Us）</span>
-            </button>
+            </a>
 
-            <button
-              onClick={() => onSelectCategory('privacy')}
+            <a
+              href="/privacy"
+              onClick={(e) => {
+                e.preventDefault();
+                onSelectCategory('privacy');
+              }}
               className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-stone-800/80 hover:bg-stone-800 text-stone-300 hover:text-white border border-stone-700/60 transition cursor-pointer"
             >
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
               <span>プライバシーポリシー（Privacy）</span>
-            </button>
+            </a>
 
-            <button
-              onClick={() => onSelectCategory('terms')}
+            <a
+              href="/terms"
+              onClick={(e) => {
+                e.preventDefault();
+                onSelectCategory('terms');
+              }}
               className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-stone-800/80 hover:bg-stone-800 text-stone-300 hover:text-white border border-stone-700/60 transition cursor-pointer"
             >
               <Scale className="w-4 h-4 text-stone-400" />
               <span>利用規約（Terms）</span>
-            </button>
+            </a>
 
-            <button
-              onClick={() => onSelectCategory('contact')}
+            <a
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                onSelectCategory('contact');
+              }}
               className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-emerald-950/60 hover:bg-emerald-900/80 text-emerald-300 hover:text-white border border-emerald-800/60 font-semibold transition cursor-pointer"
             >
               <Mail className="w-4 h-4 text-emerald-400" />
               <span>お問い合わせ（Contact Us）</span>
-            </button>
+            </a>
           </div>
 
         </div>

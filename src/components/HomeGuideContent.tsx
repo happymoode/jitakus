@@ -75,13 +75,17 @@ export const HomeGuideContent: React.FC<HomeGuideContentProps> = ({
           </p>
         </div>
         <div className="pt-2">
-          <button
-            onClick={() => onSelectArticle('jitaku-dekirkoto-50')}
+          <a
+            href="/blog/自宅でできること50選-520430"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectArticle('jitaku-dekirkoto-50');
+            }}
             className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg transition cursor-pointer"
           >
             <span>「自宅でできること50選」の記事を見る</span>
             <ArrowRight className="w-3.5 h-3.5" />
-          </button>
+          </a>
         </div>
       </section>
 
@@ -93,54 +97,65 @@ export const HomeGuideContent: React.FC<HomeGuideContentProps> = ({
         </h3>
         <div className="space-y-3 text-[15px] leading-relaxed text-stone-700">
           <p>
-            特に予定がなく、時間がゆっくり流れる日は誰にでもあります。退屈を感じたとき、スマートフォンの画面をただスクロールし続けるだけでなく、自由な時間を活用して楽しく有意義な体験を始めるチャンスです。
+            特に予定のない日は、退屈に感じることもあれば、普段できないことに取り組む絶好のチャンスにもなります。少しのきっかけがあれば、退屈な時間を充実したひとときに変えることができます。
           </p>
           <p>
-            新しい趣味の開拓、部屋の模様替え、丁寧な食事の準備、オンライン学習、日記を書くこと、心地よい夜のリラックス習慣づくりなど、手軽にできる工夫は豊富にあります。
+            手軽にリフレッシュしたいときは、パズル、ポッドキャスト鑑賞、部屋の模様替え、新しいプレイリスト作りなどが効果的です。
           </p>
           <p>
-            静かに過ごしたい方には、読書、イラスト、パズル、手芸、音楽鑑賞、カメラ、教養の学び直しなどがぴったりです。
+            生産的に過ごしたいなら、スマートフォンの写真整理、デジタルファイルのバックアップ、クローゼットの整理、簡単な自炊レシピの開拓なども充実感につながります。
           </p>
           <p>
-            体を動かしたい方には、柔軟体操、自重トレーニング、室内ダンス、足音が響かない静かな有酸素運動などが、部屋にいながらリフレッシュするのに役立ちます。
-          </p>
-          <p>
-            当サイトのガイドは、所要時間・難易度・費用・活動タイプごとに整理されており、今の気分に合ったアイデアをすぐに見つけられます。
-          </p>
-        </div>
-      </section>
-
-      {/* Section 3: Remote Work & Home-Based Jobs */}
-      <section className="space-y-4">
-        <h3 className="text-xl sm:text-2xl font-bold text-stone-900 flex items-center gap-2">
-          <Briefcase className="w-5 h-5 text-indigo-600 shrink-0" />
-          <span>自宅でできる仕事・在宅ワーク・内職</span>
-        </h3>
-        <div className="space-y-3 text-[15px] leading-relaxed text-stone-700">
-          <p>
-            在宅で働くスタイルは、現代のライフスタイルにおいて重要な選択肢となりました。リモートワークは通勤の負担をなくし、生活の柔軟性を高めてくれます。また、空いた時間や個人のスキルを有効活用する手段としても実用的です。
-          </p>
-          <p>
-            Jitakus.comでは、パソコンを使ったオンラインワーク、フリーランス、在宅事務、データ入力から、伝統的な手作業による内職（家内労働）まで、幅広い働き方を解説しています。
-          </p>
-          <p>
-            内職には、袋詰め、製品組み立て、シール貼りなどのシンプルな作業があります。また、ライティング、デザイン、プログラミング、カスタマーサポートなど、専門知識を活かせる案件も多数存在します。
-          </p>
-          <p>
-            ただし、すべての募集が安全とは限りません。応募前には、運営企業の実態、報酬体系、契約条件をしっかり確認することが大切です。特に高額な初期費用や不透明な登録料を求める案件には十分ご注意ください。
-          </p>
-          <p>
-            当サイトでは、安全に仕事を探すための確認ポイントや、トラブルを防ぐための知識をわかりやすくまとめています。
+            気分に合わせて選べるよう、数分で終わる手軽なアクティビティから没頭できる本格的な趣味まで、幅広いインドアアイデアを網羅しています。
           </p>
         </div>
         <div className="pt-2">
-          <button
-            onClick={() => onSelectArticle('jitaku-naishoku-todoku')}
+          <a
+            href="/category/activities"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectCategory('activities');
+            }}
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-800 hover:text-blue-700 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg transition cursor-pointer"
+          >
+            <span>「自宅でできること・趣味・暇つぶし」一覧を見る</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
+      </section>
+
+      {/* Section 3: Work from Home & Home-Delivered Tasks */}
+      <section className="space-y-4">
+        <h3 className="text-xl sm:text-2xl font-bold text-stone-900 flex items-center gap-2">
+          <Briefcase className="w-5 h-5 text-indigo-600 shrink-0" />
+          <span>自宅でできる仕事・在宅ワーク・自宅に届く内職</span>
+        </h3>
+        <div className="space-y-3 text-[15px] leading-relaxed text-stone-700">
+          <p>
+            働き方の多様化に伴い、自宅で収入を得る方法は大きく広がりました。フルタイムの在宅勤務から、すきま時間に行う軽作業や副業まで、選択肢は多岐にわたります。
+          </p>
+          <p>
+            パソコンやスマートフォンを活用したリモートワークには、データ入力、記事執筆、オンラインカスタマーサポート、文字起こし、デザイン制作などがあります。
+          </p>
+          <p>
+            また、自宅に資材が届いて作業を行う手作業の内職（シール貼り、梱包、検品、組み立てなど）に関心を持つ方も増えています。
+          </p>
+          <p>
+            当サイトでは、安全で信頼できる仕事の探し方、作業効率を上げる環境づくり、そして注意すべき詐欺案件の見分け方について、分かりやすく解説しています。
+          </p>
+        </div>
+        <div className="pt-2">
+          <a
+            href="/blog/自宅に届く内職-520440"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectArticle('jitaku-naishoku-todoku');
+            }}
             className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-800 hover:text-indigo-700 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition cursor-pointer"
           >
             <span>「自宅に届く安全な内職」の記事を見る</span>
             <ArrowRight className="w-3.5 h-3.5" />
-          </button>
+          </a>
         </div>
       </section>
 
@@ -180,126 +195,112 @@ export const HomeGuideContent: React.FC<HomeGuideContentProps> = ({
             代表例として、ストレッチ、スクワット、ランジ、プッシュアップ、プランク、静かな有酸素運動などが挙げられます。
           </p>
           <p>
-            集合住宅にお住まいの場合、騒音への配慮は欠かせません。激しい跳躍運動や重量器具を避け、足音の響かない静音種目やヨガマットの活用が推奨されます。
+            アパートやマンションにお住まいの方には、階下に音が響かない静音メニュー（ジャンプを伴わない低衝撃トレーニング）が適しています。
           </p>
           <p>
-            当サイトのエクササイズガイドでは、無理のないルーティン、基本フォーム、スペース確保のコツ、継続しやすい仕組み作りに焦点を当てています。
-          </p>
-          <p>
-            運動を始める際はご自身の体力に合わせた負荷を選び、痛みや違和感がある場合は無理をせず中断してください。
+            運動を無理なく習慣化するためのポイントや、器具を使わない安全なトレーニング法、短時間でできるリフレッシュ体操などを紹介しています。
           </p>
         </div>
         <div className="pt-2">
-          <button
-            onClick={() => onSelectArticle('jitaku-undou')}
+          <a
+            href="/category/fitness"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectCategory('fitness');
+            }}
             className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-800 hover:text-teal-700 bg-teal-50 hover:bg-teal-100 px-3 py-1.5 rounded-lg transition cursor-pointer"
           >
-            <span>「自宅でできる運動10選」の記事を見る</span>
+            <span>「自宅での運動・フィットネス」一覧を見る</span>
             <ArrowRight className="w-3.5 h-3.5" />
-          </button>
+          </a>
         </div>
       </section>
 
-      {/* Section 6: Hobbies & Indoor Activities */}
+      {/* Section 6: Muscle Training at Home */}
+      <section className="space-y-4">
+        <h3 className="text-xl sm:text-2xl font-bold text-stone-900 flex items-center gap-2">
+          <Activity className="w-5 h-5 text-emerald-700 shrink-0" />
+          <span>自宅での筋トレ（自重トレーニング）</span>
+        </h3>
+        <div className="space-y-3 text-[15px] leading-relaxed text-stone-700">
+          <p>
+            基礎体力の向上や姿勢の改善、引き締まった体づくりを目指す方にとって、自宅での筋力トレーニングは手軽で効果的な選択肢です。
+          </p>
+          <p>
+            重い器具を使わなくても、自分の体重（自重）を利用することで全身をバランスよく鍛えることができます。動作のスピードや回数、インターバルを調節することで負荷を自在に変えられます。
+          </p>
+          <p>
+            胸、背中、脚、体幹など、部位ごとの基本種目と正しいフォームのコツを整理しています。安全を最優先に、ケガを防ぎながら着実に継続できるステップを大切にしています。
+          </p>
+        </div>
+      </section>
+
+      {/* Section 7: Hobbies & Entertainment at Home */}
       <section className="space-y-4">
         <h3 className="text-xl sm:text-2xl font-bold text-stone-900 flex items-center gap-2">
           <Heart className="w-5 h-5 text-rose-600 shrink-0" />
-          <span>自宅での趣味・インドア活動</span>
+          <span>自宅での趣味・エンタメ</span>
         </h3>
         <div className="space-y-3 text-[15px] leading-relaxed text-stone-700">
           <p>
-            趣味を持つことは、暮らしを豊かにし、新たな発見や自己成長をもたらすきっかけになります。
+            心地よい趣味を持つことは、日々のストレスを和らげ、おうち時間を格段に豊かにしてくれます。
           </p>
           <p>
-            人気のインドア趣味には、読書、デッサン、料理、ベーキング、観葉植物、手芸・編み物、楽器、ゲーム、語学学習、オンライン講座などがあります。
+            クリエイティブなもの（イラスト、工芸、楽器演奏、写真編集）、知的なもの（読書、語学学習、プログラミング、パズル）、リラックスできるもの（ガーデニング、料理、アロマテラピー、瞑想）など、関心に合わせて選べる分野は豊富です。
           </p>
           <p>
-            手軽に始められるものから、経験を重ねるほど奥深さを味わえるものまで幅広く揃っています。
-          </p>
-          <p>
-            最初から無理に大きな目標を立てず、小さなステップから少しずつ触れてみることで、自分に合った趣味かどうかが自然と分かります。
-          </p>
-          <p>
-            初心者向けの手引きから、さらに楽しさを深めるステップアップ情報まで分かりやすく紹介しています。
+            初心者でも気軽に始められる趣味のステップや、必要な道具、無理のない楽しみ方を分かりやすくまとめています。
           </p>
         </div>
       </section>
 
-      {/* Section 7: Creating a More Comfortable Home */}
+      {/* Section 8: Home Cooking & Simple Recipes */}
       <section className="space-y-4">
         <h3 className="text-xl sm:text-2xl font-bold text-stone-900 flex items-center gap-2">
-          <Layers className="w-5 h-5 text-amber-700 shrink-0" />
-          <span>自宅をより快適にする環境づくり</span>
+          <Sparkles className="w-5 h-5 text-orange-600 shrink-0" />
+          <span>自宅での自炊・簡単料理</span>
         </h3>
         <div className="space-y-3 text-[15px] leading-relaxed text-stone-700">
           <p>
-            住まいの環境は、そこで過ごす時間の満足度に大きく影響します。高額なリノベーションを行わなくても、配置や日々の工夫で居心地は大きく改善できます。
+            お家で料理をすることは、食費の節約になるだけでなく、健康管理や楽しいリフレッシュの時間にもなります。
           </p>
           <p>
-            照明の調光・色温度、室温と湿度、整理収納、遮音、家具の動線、清潔感などが心地よい空間づくりに直結します。
+            凝った料理を作る必要はありません。手軽なワンパン料理、作り置きおかず、身近な食材を使ったシンプルなレシピから始めるのが長続きのコツです。
           </p>
           <p>
-            例えば、作業スペースを整えると集中しやすくなり、夜間に暖色系ライトを用いることで深い安らぎを得られます。
-          </p>
-          <p>
-            当サイトでは、快適性を高める部屋づくり、スマートな片付け、手軽な自炊など、生活の質を底上げするヒントをお届けしています。
+            忙しい日でもサッと作れる時短料理の工夫や、買い出しの無駄を省く食材管理のアイデアをご紹介しています。
           </p>
         </div>
       </section>
 
-      {/* Section 8: Saving Money at Home */}
-      <section className="space-y-4">
-        <h3 className="text-xl sm:text-2xl font-bold text-stone-900 flex items-center gap-2">
-          <PiggyBank className="w-5 h-5 text-emerald-700 shrink-0" />
-          <span>自宅生活での節約術</span>
-        </h3>
-        <div className="space-y-3 text-[15px] leading-relaxed text-stone-700">
-          <p>
-            お家で過ごす時間が増えることは、家計や日々の支出を見直す良い機会にもなります。
-          </p>
-          <p>
-            待機電力の削減、計画的な自炊、食材ロス防止、消耗品の賢い使用、固定費の見直しなど、無理のない習慣の積み重ねが節約につながります。
-          </p>
-          <p>
-            極端な我慢をする必要はありません。ストレスなく長続きする現実的な工夫こそが、長期的に安定した成果を生み出します。
-          </p>
-          <p>
-            光熱費、食費、日用品、日常ルーティンなど、手軽に実践できる節約の知恵をまとめています。
-          </p>
-        </div>
-      </section>
-
-      {/* Section 9: Learning and Studying at Home */}
+      {/* Section 9: Learning & Skill Development at Home */}
       <section className="space-y-4">
         <h3 className="text-xl sm:text-2xl font-bold text-stone-900 flex items-center gap-2">
           <BookOpen className="w-5 h-5 text-cyan-600 shrink-0" />
-          <span>自宅での勉強・学習法</span>
+          <span>自宅での勉強・自己研鑽</span>
         </h3>
         <div className="space-y-3 text-[15px] leading-relaxed text-stone-700">
           <p>
-            集中できる環境さえ整えば、自宅は自分専用の充実した学びの場になります。
+            インターネットの普及により、自宅にいながら質の高い学習リソースへアクセスできるようになりました。
           </p>
           <p>
-            語学学習、資格試験の準備、実務スキルの習得、読書、知的好奇心に基づくリサーチなど、学習の可能性は無限です。
+            語学学習、資格取得、プログラミング、ビジネススキルの向上など、無料の講座やアプリを活用して自分のペースで進めることができます。
           </p>
           <p>
-            継続の秘訣は、無理のない学習スケジュールを習慣化することです。1日15分の積み重ねでも、長期的には大きな成果となります。
-          </p>
-          <p>
-            集中力を高める環境整備、ポモドーロ法などの時間管理、オンライン教材の活用法など、勉強を日常に溶け込ませる方法を提案しています。
+            集中力を維持するための環境づくり（ポモドーロ・テクニックの活用や作業スペースの整理）や、継続しやすい学習ルーティンの作り方を解説しています。
           </p>
         </div>
       </section>
 
-      {/* Section 10: Finding Distance and Travel Time From Home */}
+      {/* Section 10: Distance, Travel Time & Home Navigation */}
       <section className="space-y-4">
         <h3 className="text-xl sm:text-2xl font-bold text-stone-900 flex items-center gap-2">
-          <Compass className="w-5 h-5 text-rose-600 shrink-0" />
-          <span>自宅からの距離・所要時間の調べ方</span>
+          <Compass className="w-5 h-5 text-rose-700 shrink-0" />
+          <span>自宅からの距離・移動時間・ナビゲーション</span>
         </h3>
         <div className="space-y-3 text-[15px] leading-relaxed text-stone-700">
           <p>
-            日々の生活では、自宅からの距離や移動時間を調べる場面が多くあります。
+            日常生活や引っ越し、通勤・通学の計画において、「自宅から駅までの距離」や「自宅までの帰り道」を正確に把握したい場面が多くあります。
           </p>
           <p>
             最寄り駅までの徒歩分数、通勤・通学路の所要時間、自転車や車での所要時間など、マップやナビツールを活用することでスムーズに把握できます。
@@ -312,13 +313,17 @@ export const HomeGuideContent: React.FC<HomeGuideContentProps> = ({
           </p>
         </div>
         <div className="pt-2">
-          <button
-            onClick={() => onSelectCategory('nav-tool')}
+          <a
+            href="/tool/distance"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectCategory('nav-tool');
+            }}
             className="inline-flex items-center gap-1.5 text-xs font-bold text-rose-800 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 px-3 py-1.5 rounded-lg transition cursor-pointer"
           >
             <span>「自宅ナビ・距離所要時間計算ツール」を試す</span>
             <ArrowRight className="w-3.5 h-3.5" />
-          </button>
+          </a>
         </div>
       </section>
 
@@ -358,8 +363,12 @@ export const HomeGuideContent: React.FC<HomeGuideContentProps> = ({
 
         {/* Action Grid - Complete 6 Categories + All 30 Blogs */}
         <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-          <button
-            onClick={() => onSelectCategory('all')}
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectCategory('all');
+            }}
             className="p-3.5 bg-emerald-800 text-white rounded-xl hover:bg-emerald-900 text-left transition cursor-pointer group shadow-2xs flex flex-col justify-between"
           >
             <div>
@@ -369,58 +378,86 @@ export const HomeGuideContent: React.FC<HomeGuideContentProps> = ({
               </span>
               <span className="text-[11px] text-emerald-100 mt-1 block">全30記事を一覧表示</span>
             </div>
-          </button>
+          </a>
 
-          <button
-            onClick={() => onSelectCategory('definition')}
+          <a
+            href="/category/definition"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectCategory('definition');
+            }}
             className="p-3.5 bg-white rounded-xl border border-stone-200 hover:border-emerald-500 text-left transition cursor-pointer group hover:bg-emerald-50/50"
           >
             <span className="text-xs font-bold text-stone-900 group-hover:text-emerald-800 block">自宅とは？</span>
             <span className="text-[11px] text-stone-500">意味・使い方を解説</span>
-          </button>
+          </a>
 
-          <button
-            onClick={() => onSelectCategory('activities')}
+          <a
+            href="/category/activities"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectCategory('activities');
+            }}
             className="p-3.5 bg-white rounded-xl border border-stone-200 hover:border-blue-500 text-left transition cursor-pointer group hover:bg-blue-50/50"
           >
             <span className="text-xs font-bold text-stone-900 group-hover:text-blue-800 block">自宅でできること</span>
             <span className="text-[11px] text-stone-500">趣味・暇つぶしアイデア</span>
-          </button>
+          </a>
 
-          <button
-            onClick={() => onSelectCategory('work')}
+          <a
+            href="/category/work"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectCategory('work');
+            }}
             className="p-3.5 bg-white rounded-xl border border-stone-200 hover:border-indigo-500 text-left transition cursor-pointer group hover:bg-indigo-50/50"
           >
             <span className="text-xs font-bold text-stone-900 group-hover:text-indigo-800 block">在宅ワーク・内職</span>
             <span className="text-[11px] text-stone-500">安全な仕事と副業</span>
-          </button>
+          </a>
 
-          <button
-            onClick={() => onSelectCategory('fitness')}
+          <a
+            href="/category/fitness"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectCategory('fitness');
+            }}
             className="p-3.5 bg-white rounded-xl border border-stone-200 hover:border-teal-500 text-left transition cursor-pointer group hover:bg-teal-50/50"
           >
             <span className="text-xs font-bold text-stone-900 group-hover:text-teal-800 block">自宅で運動・筋トレ</span>
             <span className="text-[11px] text-stone-500">静音宅トレ＆ストレッチ</span>
-          </button>
+          </a>
 
-          <button
-            onClick={() => onSelectCategory('lifestyle')}
+          <a
+            href="/category/lifestyle"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectCategory('lifestyle');
+            }}
             className="p-3.5 bg-white rounded-xl border border-stone-200 hover:border-amber-500 text-left transition cursor-pointer group hover:bg-amber-50/50"
           >
             <span className="text-xs font-bold text-stone-900 group-hover:text-amber-800 block">自宅暮らし・節約</span>
             <span className="text-[11px] text-stone-500">光熱費削減＆料理・学び</span>
-          </button>
+          </a>
 
-          <button
-            onClick={() => onSelectCategory('navigation')}
+          <a
+            href="/category/navigation"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectCategory('navigation');
+            }}
             className="p-3.5 bg-white rounded-xl border border-stone-200 hover:border-rose-500 text-left transition cursor-pointer group hover:bg-rose-50/50"
           >
             <span className="text-xs font-bold text-stone-900 group-hover:text-rose-800 block">自宅から/自宅まで</span>
             <span className="text-[11px] text-stone-500">駅徒歩・距離計算ガイド</span>
-          </button>
+          </a>
 
-          <button
-            onClick={() => onSelectCategory('nav-tool')}
+          <a
+            href="/tool/distance"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectCategory('nav-tool');
+            }}
             className="p-3.5 bg-stone-900 text-stone-100 rounded-xl hover:bg-stone-800 text-left transition cursor-pointer group flex flex-col justify-between"
           >
             <div>
@@ -430,11 +467,11 @@ export const HomeGuideContent: React.FC<HomeGuideContentProps> = ({
               </span>
               <span className="text-[11px] text-stone-400 mt-1 block">徒歩・自転車・車計算</span>
             </div>
-          </button>
+          </a>
         </div>
       </section>
 
-      {/* Section 13: Frequently Asked Questions (FAQ) - Google Helpful Content & SpamBrain Compliant */}
+      {/* Section 13: Frequently Asked Questions (FAQ) */}
       <section className="space-y-6 pt-4 border-t border-stone-100">
         <div className="space-y-1">
           <div className="inline-flex items-center gap-1.5 text-xs text-emerald-800 font-bold">
@@ -496,9 +533,9 @@ export const HomeGuideContent: React.FC<HomeGuideContentProps> = ({
           <p>正確性と中立性に配慮し、信頼できる情報源に基づき定期的に内容を検証・更新しています。</p>
         </div>
         <div className="flex items-center gap-3 shrink-0 font-medium">
-          <button onClick={() => onSelectCategory('definition')} className="hover:text-emerald-800 underline cursor-pointer">免責事項</button>
+          <a href="/category/definition" onClick={(e) => { e.preventDefault(); onSelectCategory('definition'); }} className="hover:text-emerald-800 underline cursor-pointer">免責事項</a>
           <span>•</span>
-          <button onClick={() => onSelectCategory('all')} className="hover:text-emerald-800 underline cursor-pointer">編集ポリシー</button>
+          <a href="/" onClick={(e) => { e.preventDefault(); onSelectCategory('all'); }} className="hover:text-emerald-800 underline cursor-pointer">編集ポリシー</a>
         </div>
       </footer>
 

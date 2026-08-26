@@ -59,7 +59,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
 
           <button
             onClick={(e) => onToggleBookmark(article.slug, e)}
-            className={`p-1.5 rounded-lg border transition cursor-pointer shrink-0 ${
+            className={`p-1.5 rounded-lg border transition cursor-pointer shrink-0 z-10 ${
               isBookmarked
                 ? 'bg-amber-50 text-amber-700 border-amber-300'
                 : 'text-stone-400 border-transparent hover:border-stone-200 hover:bg-stone-50'
@@ -72,7 +72,16 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
 
         {/* Title */}
         <h3 className="font-bold text-base sm:text-lg text-stone-900 leading-snug group-hover:text-emerald-800 transition">
-          {article.title}
+          <a
+            href={`/blog/${kotobankSlug}`}
+            onClick={(e) => {
+              e.preventDefault();
+              onSelect(article.slug);
+            }}
+            className="hover:underline focus:outline-none"
+          >
+            {article.title}
+          </a>
         </h3>
 
         {/* Summary */}
@@ -102,10 +111,17 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
           <span>読了約 {article.readingTimeMinutes} 分</span>
         </div>
 
-        <div className="flex items-center gap-1 text-emerald-800 font-semibold text-xs group-hover:translate-x-0.5 transition">
+        <a
+          href={`/blog/${kotobankSlug}`}
+          onClick={(e) => {
+            e.preventDefault();
+            onSelect(article.slug);
+          }}
+          className="flex items-center gap-1 text-emerald-800 font-semibold text-xs group-hover:translate-x-0.5 transition"
+        >
           <span>ブログを読む</span>
           <ArrowRight className="w-3.5 h-3.5" />
-        </div>
+        </a>
       </div>
     </article>
   );

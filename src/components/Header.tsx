@@ -84,13 +84,27 @@ export const Header: React.FC<HeaderProps> = ({
     });
   };
 
+  const getNavHref = (id: NavView) => {
+    if (id === 'nav-tool') return '/tool/distance';
+    if (id === 'work-tool') return '/tool/work';
+    if (id === 'ai-advisor') return '/tool/ai-advisor';
+    if (id === 'about') return '/about';
+    if (id === 'privacy') return '/privacy';
+    if (id === 'terms') return '/terms';
+    if (id === 'contact') return '/contact';
+    if (id === 'all') return '/';
+    return `/category/${id}`;
+  };
+
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-stone-200 text-stone-800">
       {/* Main Header Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between gap-3">
         {/* Brand Logo (Always links to home) */}
-        <button
-          onClick={() => {
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
             onSelectCategory('all');
             setMobileMenuOpen(false);
           }}
@@ -111,17 +125,21 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             <p className="text-[10px] sm:text-[11px] text-stone-500 font-sans mt-0.5">安心・やさしい 自宅生活＆在宅ワーク情報</p>
           </div>
-        </button>
+        </a>
 
         {/* Right action buttons: Contact, Search (Replacing AI), Hamburger Menu */}
         <div className="flex items-center gap-1.5 sm:gap-2.5">
-          <button
-            onClick={() => onSelectCategory('contact')}
+          <a
+            href="/contact"
+            onClick={(e) => {
+              e.preventDefault();
+              onSelectCategory('contact');
+            }}
             className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-lg border border-stone-200 hover:bg-stone-50 text-stone-700 text-xs font-semibold transition cursor-pointer"
           >
             <Mail className="w-3.5 h-3.5 text-stone-500" />
             <span>お問い合わせ</span>
-          </button>
+          </a>
 
           {/* Search Button (Replaces AI Button in Header) */}
           <button
@@ -210,10 +228,15 @@ export const Header: React.FC<HeaderProps> = ({
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentCategory === item.id;
+              const href = getNavHref(item.id);
               return (
-                <button
+                <a
                   key={item.id}
-                  onClick={() => onSelectCategory(item.id)}
+                  href={href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onSelectCategory(item.id);
+                  }}
                   className={`flex items-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-lg shrink-0 whitespace-nowrap transition cursor-pointer text-xs sm:text-sm ${
                     isActive
                       ? 'bg-white text-emerald-800 shadow-xs font-bold border border-stone-200 ring-1 ring-emerald-600/20'
@@ -227,7 +250,7 @@ export const Header: React.FC<HeaderProps> = ({
                       {item.badge}
                     </span>
                   )}
-                </button>
+                </a>
               );
             })}
           </div>
@@ -295,8 +318,10 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Quick Action: Home button */}
           <div className="pt-1 border-t border-stone-100">
-            <button
-              onClick={() => {
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
                 onSelectCategory('all');
                 onSearchChange('');
                 setMobileMenuOpen(false);
@@ -305,7 +330,7 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <Home className="w-4 h-4 text-emerald-700" />
               <span>ホームトップへ戻る</span>
-            </button>
+            </a>
           </div>
 
           {/* Category Navigation Items List */}
@@ -316,10 +341,13 @@ export const Header: React.FC<HeaderProps> = ({
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentCategory === item.id;
+              const href = getNavHref(item.id);
               return (
-                <button
+                <a
                   key={item.id}
-                  onClick={() => {
+                  href={href}
+                  onClick={(e) => {
+                    e.preventDefault();
                     onSelectCategory(item.id);
                     setMobileMenuOpen(false);
                   }}
@@ -340,7 +368,7 @@ export const Header: React.FC<HeaderProps> = ({
                       {item.badge}
                     </span>
                   )}
-                </button>
+                </a>
               );
             })}
           </div>
@@ -354,15 +382,17 @@ export const Header: React.FC<HeaderProps> = ({
               </div>
               <p className="text-[11px] text-stone-300">過ごし方や仕事の質問に即答</p>
             </div>
-            <button
-              onClick={() => {
+            <a
+              href="/tool/ai-advisor"
+              onClick={(e) => {
+                e.preventDefault();
                 onSelectCategory('ai-advisor');
                 setMobileMenuOpen(false);
               }}
               className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-lg shrink-0 cursor-pointer"
             >
               相談する
-            </button>
+            </a>
           </div>
 
           {/* Information & Legal Links */}
@@ -371,8 +401,10 @@ export const Header: React.FC<HeaderProps> = ({
               インフォメーション
             </div>
             
-            <button
-              onClick={() => {
+            <a
+              href="/about"
+              onClick={(e) => {
+                e.preventDefault();
                 onSelectCategory('about');
                 setMobileMenuOpen(false);
               }}
@@ -380,10 +412,12 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <Info className="w-3.5 h-3.5 text-stone-500" />
               <span>当サイトについて（運営者情報）</span>
-            </button>
+            </a>
 
-            <button
-              onClick={() => {
+            <a
+              href="/privacy"
+              onClick={(e) => {
+                e.preventDefault();
                 onSelectCategory('privacy');
                 setMobileMenuOpen(false);
               }}
@@ -391,10 +425,12 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <ShieldCheck className="w-3.5 h-3.5 text-stone-500" />
               <span>プライバシーポリシー</span>
-            </button>
+            </a>
 
-            <button
-              onClick={() => {
+            <a
+              href="/terms"
+              onClick={(e) => {
+                e.preventDefault();
                 onSelectCategory('terms');
                 setMobileMenuOpen(false);
               }}
@@ -402,10 +438,12 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <Scale className="w-3.5 h-3.5 text-stone-500" />
               <span>利用規約・免責事項</span>
-            </button>
+            </a>
 
-            <button
-              onClick={() => {
+            <a
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
                 onSelectCategory('contact');
                 setMobileMenuOpen(false);
               }}
@@ -415,7 +453,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <Mail className="w-3.5 h-3.5 text-emerald-700" />
                 <span>お問い合わせ (info@jitakus.com)</span>
               </div>
-            </button>
+            </a>
           </div>
         </div>
       )}
