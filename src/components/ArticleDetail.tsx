@@ -61,14 +61,15 @@ export const ArticleDetail: React.FC<ArticleDetailProps> = ({
     <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in duration-200">
       {/* Japanese Breadcrumb Navigation with anchor keyword 自宅 */}
       <nav className="flex items-center gap-1.5 text-xs text-stone-500 overflow-x-auto whitespace-nowrap py-1">
-        <button 
-          onClick={onBack}
+        <a 
+          href="/"
+          onClick={(e) => { e.preventDefault(); onBack(); }}
           className="flex items-center gap-1 font-bold text-emerald-800 hover:text-emerald-900 transition cursor-pointer underline-offset-2 hover:underline"
           title="自宅総合ポータル トップへ"
         >
           <Home className="w-3.5 h-3.5" />
           <span>自宅</span>
-        </button>
+        </a>
         <span className="text-stone-300">/</span>
         <span className="flex items-center gap-1 text-stone-600">
           <BookOpen className="w-3 h-3" />
@@ -82,13 +83,14 @@ export const ArticleDetail: React.FC<ArticleDetailProps> = ({
 
       {/* Back Button & Top Action Controls */}
       <div className="flex items-center justify-between gap-4">
-        <button
-          onClick={onBack}
+        <a
+          href="/"
+          onClick={(e) => { e.preventDefault(); onBack(); }}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-stone-200 bg-white hover:bg-stone-50 text-xs font-medium text-stone-700 transition cursor-pointer shadow-xs"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>記事一覧へ戻る</span>
-        </button>
+        </a>
 
         <div className="flex items-center gap-2">
           <button
@@ -290,10 +292,11 @@ export const ArticleDetail: React.FC<ArticleDetailProps> = ({
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {relatedArticles.slice(0, 2).map((rel) => (
-                <button
+                <a
                   key={rel.id}
-                  onClick={() => onSelectArticle(rel.slug)}
-                  className="p-3.5 bg-white rounded-xl border border-stone-200 hover:border-emerald-600 text-left transition group cursor-pointer flex flex-col justify-between hover:shadow-xs"
+                  href={getBlogUrl(rel.slug)}
+                  onClick={(e) => { e.preventDefault(); onSelectArticle(rel.slug); }}
+                  className="p-3.5 bg-white rounded-xl border border-stone-200 hover:border-emerald-600 text-left transition group cursor-pointer flex flex-col justify-between hover:shadow-xs block"
                 >
                   <div>
                     <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded">
@@ -307,7 +310,7 @@ export const ArticleDetail: React.FC<ArticleDetailProps> = ({
                     <span>詳しく読む</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
                   </div>
-                </button>
+                </a>
               ))}
             </div>
           </div>
@@ -396,14 +399,15 @@ export const ArticleDetail: React.FC<ArticleDetailProps> = ({
           </div>
 
           {/* Single Clean Home / Blog Backlink Button */}
-          <button
-            onClick={onBack}
+          <a
+            href="/"
+            onClick={(e) => { e.preventDefault(); onBack(); }}
             className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 hover:text-emerald-900 bg-emerald-50 hover:bg-emerald-100 px-3.5 py-2 rounded-xl transition cursor-pointer border border-emerald-200/60 shadow-2xs"
             title="自宅生活総合ガイド トップページへ戻る"
           >
             <Home className="w-3.5 h-3.5" />
             <span>「自宅」トップへ戻る</span>
-          </button>
+          </a>
         </div>
 
         {/* Primary SEO Anchor Backlink Box to Home Page for Keyword: 自宅 */}
@@ -415,23 +419,25 @@ export const ArticleDetail: React.FC<ArticleDetailProps> = ({
             </div>
             <p className="text-xs text-stone-600 leading-relaxed">
               当サイトでは
-              <button
-                onClick={onBack}
-                className="font-black text-emerald-800 hover:text-emerald-950 underline underline-offset-4 decoration-2 decoration-emerald-500 mx-1 cursor-pointer"
+              <a
+                href="/"
+                onClick={(e) => { e.preventDefault(); onBack(); }}
+                className="font-black text-emerald-800 hover:text-emerald-950 underline underline-offset-4 decoration-2 decoration-emerald-500 mx-1 cursor-pointer inline-block"
                 title="自宅 総合ポータル トップページへ"
               >
                 「自宅」
-              </button>
+              </a>
               でできること・仕事・内職・運動・暮らしの全情報を発信しています。
             </p>
           </div>
-          <button
-            onClick={onBack}
+          <a
+            href="/"
+            onClick={(e) => { e.preventDefault(); onBack(); }}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xs shrink-0 cursor-pointer shadow-xs transition"
           >
             <span>「自宅」トップへ戻る</span>
             <ArrowRight className="w-3.5 h-3.5" />
-          </button>
+          </a>
         </div>
       </div>
 
@@ -443,10 +449,11 @@ export const ArticleDetail: React.FC<ArticleDetailProps> = ({
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {relatedArticles.map((rel) => (
-              <button
+              <a
                 key={rel.id}
-                onClick={() => onSelectArticle(rel.slug)}
-                className="bg-white rounded-xl border border-stone-200 p-4 text-left hover:border-emerald-600 hover:shadow-sm transition group cursor-pointer flex flex-col justify-between"
+                href={getBlogUrl(rel.slug)}
+                onClick={(e) => { e.preventDefault(); onSelectArticle(rel.slug); }}
+                className="bg-white rounded-xl border border-stone-200 p-4 text-left hover:border-emerald-600 hover:shadow-sm transition group cursor-pointer flex flex-col justify-between block"
               >
                 <div>
                   <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded">
@@ -460,7 +467,7 @@ export const ArticleDetail: React.FC<ArticleDetailProps> = ({
                   <span>記事を読む</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition" />
                 </div>
-              </button>
+              </a>
             ))}
           </div>
         </div>
