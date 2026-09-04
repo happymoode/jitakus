@@ -234,12 +234,26 @@ const STATIC_ROUTES: RouteConfig[] = [
   },
 ];
 
+function renderMarkdownLinks(text: string): string {
+  if (!text) return '';
+  return text.replace(
+    /\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer" style="color:#047857;text-decoration:underline;font-weight:600;">$1</a>'
+  );
+}
+
 function getArticleContentHtml(article: typeof ARTICLES[0]): string {
   const sectionsHtml = (article.sections || []).map((sec) => `
     <section style="margin-top:1.5rem;">
       <h2 style="font-size:1.25rem;font-weight:bold;margin-bottom:0.5rem;color:#1c1917;">${sec.heading}</h2>
-      <p style="line-height:1.75;color:#44403c;">${sec.content}</p>
-      ${sec.bulletPoints ? `<ul style="margin:0.75rem 0;padding-left:1.5rem;">${sec.bulletPoints.map(bp => `<li style="margin-bottom:0.35rem;line-height:1.6;">${bp}</li>`).join('')}</ul>` : ''}
+      <p style="line-height:1.75;color:#44403c;white-space:pre-line;">${renderMarkdownLinks(sec.content)}</p>
+      ${sec.bulletPoints ? `<ul style="margin:0.75rem 0;padding-left:1.5rem;">${sec.bulletPoints.map(bp => `<li style="margin-bottom:0.35rem;line-height:1.6;">${renderMarkdownLinks(bp)}</li>`).join('')}</ul>` : ''}
+      ${sec.callout ? `
+        <div style="margin-top:1rem;padding:0.85rem 1.25rem;border-radius:0.5rem;background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;">
+          <strong style="display:block;margin-bottom:0.25rem;">${sec.callout.title}</strong>
+          <p style="margin:0;font-size:0.95rem;line-height:1.6;">${renderMarkdownLinks(sec.callout.text)}</p>
+        </div>
+      ` : ''}
     </section>
   `).join('');
 

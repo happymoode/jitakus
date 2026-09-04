@@ -16,6 +16,40 @@ interface ArticleDetailProps {
   onToggleBookmark: (slug: string) => void;
 }
 
+function renderTextWithLinks(text: string) {
+  if (!text) return null;
+  const linkRegex = /\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/g;
+  const parts: (string | React.ReactNode)[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = linkRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    const label = match[1];
+    const url = match[2];
+    parts.push(
+      <a
+        key={match.index}
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-emerald-700 font-semibold underline underline-offset-2 hover:text-emerald-800 transition-colors"
+      >
+        {label}
+      </a>
+    );
+    lastIndex = linkRegex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts;
+}
+
 export const ArticleDetail: React.FC<ArticleDetailProps> = ({
   article,
   onBack,
@@ -217,7 +251,7 @@ export const ArticleDetail: React.FC<ArticleDetailProps> = ({
             )}
 
             <div className="text-sm sm:text-base text-stone-700 leading-relaxed whitespace-pre-line">
-              {section.content}
+              {renderTextWithLinks(section.content)}
             </div>
 
             {/* Bullet Points */}
@@ -226,7 +260,7 @@ export const ArticleDetail: React.FC<ArticleDetailProps> = ({
                 {section.bulletPoints.map((bp, bpIdx) => (
                   <li key={bpIdx} className="flex items-start gap-2.5">
                     <span className="text-emerald-700 font-bold mt-0.5">•</span>
-                    <span className="leading-relaxed">{bp}</span>
+                    <span className="leading-relaxed">{renderTextWithLinks(bp)}</span>
                   </li>
                 ))}
               </ul>
@@ -277,7 +311,7 @@ export const ArticleDetail: React.FC<ArticleDetailProps> = ({
                   {section.callout.type === 'info' && <Info className="w-4 h-4 text-emerald-600" />}
                   <span>{section.callout.title}</span>
                 </div>
-                <p className="leading-relaxed">{section.callout.text}</p>
+                <p className="leading-relaxed">{renderTextWithLinks(section.callout.text)}</p>
               </div>
             )}
           </section>
