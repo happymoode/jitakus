@@ -235,7 +235,7 @@ export default function App() {
   useEffect(() => {
     let title = '自宅 - 仕事 運動';
     let description = '【自宅 (jitakus.com)】自宅での仕事・内職・在宅ワーク、自宅での運動・筋トレ、できることや暮らしを分かりやすく解説。安心で快適な自宅生活とおうち時間をサポートします。';
-    let canonicalUrl = 'https://jitakus.com/';
+    let canonicalUrl = 'https://www.jitakus.com/';
 
     if (currentArticle) {
       title = `${currentArticle.title} | 自宅 (jitakus.com)`;
@@ -243,59 +243,59 @@ export default function App() {
         ? `${currentArticle.summary.slice(0, 120)}... 自宅総合ポータル jitakus.com`
         : `「${currentArticle.title}」について分かりやすく解説。自宅生活・在宅ワーク総合ポータル jitakus.com`;
       const jpSlug = getJapaneseSlug(currentArticle.slug);
-      canonicalUrl = `https://jitakus.com/blog/${jpSlug}`;
+      canonicalUrl = `https://www.jitakus.com/blog/${jpSlug}`;
     } else if (currentCategory === 'definition') {
       title = '「自宅」の意味・定義・使い方・類語の違いまとめ | 自宅 (jitakus.com)';
       description = '「自宅」の正しい意味や定義、我が家・実家・在宅・自室との違い、公的書類での使い方をわかりやすく解説。';
-      canonicalUrl = 'https://jitakus.com/category/definition';
+      canonicalUrl = 'https://www.jitakus.com/category/definition';
     } else if (currentCategory === 'activities') {
       title = '自宅でできること50選・一人時間の暇つぶし＆趣味 | 自宅 (jitakus.com)';
       description = '自宅でできること・休日の過ごし方・一人時間の暇つぶしアイデア50選を完全網羅。お金をかけずに楽しめるおうち時間ガイド。';
-      canonicalUrl = 'https://jitakus.com/category/activities';
+      canonicalUrl = 'https://www.jitakus.com/category/activities';
     } else if (currentCategory === 'work') {
       title = '自宅でできる仕事・内職・在宅ワークおすすめ一覧 | 自宅 (jitakus.com)';
       description = '自宅でできる仕事・安全な内職・手作業シール貼り・データ入力から在宅ワークの始め方と注意点を解説。';
-      canonicalUrl = 'https://jitakus.com/category/work';
+      canonicalUrl = 'https://www.jitakus.com/category/work';
     } else if (currentCategory === 'fitness') {
       title = '自宅でできる運動・筋トレ・静音フィットネスまとめ | 自宅 (jitakus.com)';
       description = '自宅でできる運動・器具なし筋トレ・マンションでも安心なドタバタしない静音有酸素運動を解説。';
-      canonicalUrl = 'https://jitakus.com/category/fitness';
+      canonicalUrl = 'https://www.jitakus.com/category/fitness';
     } else if (currentCategory === 'lifestyle') {
       title = '自宅暮らし・節約・自炊・生活改善アイデアまとめ | 自宅 (jitakus.com)';
       description = '自宅での快適な暮らし・光熱費節約・自炊料理・読書や資格勉強・断捨離で住環境を整える実践的なおうち生活ガイド。';
-      canonicalUrl = 'https://jitakus.com/category/lifestyle';
+      canonicalUrl = 'https://www.jitakus.com/category/lifestyle';
     } else if (currentCategory === 'navigation') {
       title = '自宅からの距離・移動所要時間ナビゲーション | 自宅 (jitakus.com)';
       description = '自宅から1km・3km・5km・10km圏内の徒歩・自転車・車での移動時間や距離感をわかりやすく解説。';
-      canonicalUrl = 'https://jitakus.com/category/navigation';
+      canonicalUrl = 'https://www.jitakus.com/category/navigation';
     } else if (currentCategory === 'nav-tool') {
       title = '自宅ナビ・距離所要時間計算シミュレーター | 自宅 (jitakus.com)';
       description = '自宅からの距離や移動手段別（徒歩・自転車・車・電車）の所要時間を自動計算できる無料ナビツール。';
-      canonicalUrl = 'https://jitakus.com/tool/distance';
+      canonicalUrl = 'https://www.jitakus.com/tool/distance';
     } else if (currentCategory === 'work-tool') {
       title = '在宅ワーク・内職適性診断シミュレーター | 自宅 (jitakus.com)';
       description = 'あなたに合った自宅でできる仕事や安全な内職を1分で簡単診断できる無料ツール。';
-      canonicalUrl = 'https://jitakus.com/tool/work';
+      canonicalUrl = 'https://www.jitakus.com/tool/work';
     } else if (currentCategory === 'ai-advisor') {
       title = '自宅AIアドバイザー・おうち時間相談室 | 自宅 (jitakus.com)';
       description = '暇つぶし、在宅ワーク、運動、片付けなど自宅での過ごし方をAIがパーソナライズ提案。';
-      canonicalUrl = 'https://jitakus.com/tool/ai-advisor';
+      canonicalUrl = 'https://www.jitakus.com/tool/ai-advisor';
     } else if (currentCategory === 'about') {
       title = '当サイトについて（運営者情報・編集方針） | 自宅 (jitakus.com)';
       description = '自宅生活・在宅ワーク総合ポータル「jitakus.com」の運営者情報、編集方針、信頼性への取り組み。';
-      canonicalUrl = 'https://jitakus.com/about';
+      canonicalUrl = 'https://www.jitakus.com/about';
     } else if (currentCategory === 'privacy') {
       title = 'プライバシーポリシー | 自宅 (jitakus.com)';
       description = '自宅生活総合ポータル jitakus.com のプライバシーポリシーおよび個人情報の取り扱いについて。';
-      canonicalUrl = 'https://jitakus.com/privacy';
+      canonicalUrl = 'https://www.jitakus.com/privacy';
     } else if (currentCategory === 'terms') {
       title = '利用規約・免責事項 | 自宅 (jitakus.com)';
       description = '自宅生活総合ポータル jitakus.com の利用規約および免責事項について。';
-      canonicalUrl = 'https://jitakus.com/terms';
+      canonicalUrl = 'https://www.jitakus.com/terms';
     } else if (currentCategory === 'contact') {
       title = 'お問い合わせ（サポート窓口） | 自宅 (jitakus.com)';
       description = '自宅生活総合ポータル jitakus.com へのお問い合わせ窓口（info@jitakus.com）。ご意見・ご質問はこちら。';
-      canonicalUrl = 'https://jitakus.com/contact';
+      canonicalUrl = 'https://www.jitakus.com/contact';
     }
 
     document.title = title;

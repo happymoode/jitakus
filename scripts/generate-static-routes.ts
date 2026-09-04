@@ -21,6 +21,96 @@ interface RouteConfig {
   priority?: string;
 }
 
+function getHomeContentHtml(): string {
+  const categoryHighlights = [
+    {
+      name: '自宅とは（定義・意味・言葉の使い方）',
+      url: '/category/definition',
+      desc: '自宅の言葉の意味、自分自身の家・私邸としての定義、実家・我が家・自室との違い、履歴書や公的書類での正しい表記法を解説。',
+    },
+    {
+      name: '自宅でできること（おうち時間の過ごし方）',
+      url: '/category/activities',
+      desc: '休日の暇つぶし、一人でできること、お金をかけない室内アクティビティ、趣味、クリエイティブな挑戦のアイデア集。',
+    },
+    {
+      name: '自宅でできる仕事・在宅ワーク・内職',
+      url: '/category/work',
+      desc: '安全な内職、自宅に届く手作業（シール貼り・袋詰め・データ入力）、クラウドソーシング副業、在宅勤務の始め方を徹底解説。',
+    },
+    {
+      name: '自宅でできる運動・筋トレ・健康管理',
+      url: '/category/fitness',
+      desc: '器具なしの自重トレーニング、ドタバタしない静音有酸素運動、運動不足解消ストレッチ、自宅フィットネスの継続術。',
+    },
+    {
+      name: '自宅暮らし・自炊料理・光熱費節約',
+      url: '/category/lifestyle',
+      desc: '快適な住環境づくり、電気代・ガス代・水道代の節約テクニック、初心者でも簡単な自炊レシピ、生活リズム改善。',
+    },
+    {
+      name: '自宅からの距離・移動所要時間ナビ',
+      url: '/category/navigation',
+      desc: 'ここから自宅までの直線距離・徒歩所要時間・自転車・車での帰り道計算シミュレーター。1km・3km・5km圏内の距離感。',
+    },
+  ];
+
+  const featuredArticlesList = ARTICLES.map((art) => {
+    const jpSlug = getJapaneseSlug(art.slug);
+    return `
+      <li style="margin-bottom:0.75rem;">
+        <a href="/blog/${jpSlug}" style="color:#047857;font-weight:600;text-decoration:none;">${art.title}</a>
+        <p style="margin:0.25rem 0 0;font-size:0.9rem;color:#57534e;line-height:1.5;">${art.summary}</p>
+      </li>
+    `;
+  }).join('');
+
+  return `
+    <article style="line-height:1.75;color:#292524;">
+      <section style="margin-bottom:2rem;">
+        <h2 style="font-size:1.35rem;font-weight:bold;color:#1c1917;margin-bottom:0.75rem;">自宅生活・おうち時間・在宅ワーク総合ポータルへようこそ</h2>
+        <p><strong>Jitakus.com（自宅ポータル）</strong>は、自宅で過ごす時間をより豊かで安心、快適にするための実践的な情報をわかりやすく提供する総合Webメディアです。</p>
+        <p>「自宅でできる仕事や内職を探したい」「自宅でできる静かな運動を知りたい」「休日に自宅でできる暇つぶしや趣味を見つけたい」「自宅からの距離や移動時間を調べたい」といった日常のあらゆるニーズに応えるコンテンツを取り揃えています。</p>
+      </section>
+
+      <section style="margin-bottom:2rem;">
+        <h2 style="font-size:1.35rem;font-weight:bold;color:#1c1917;margin-bottom:0.75rem;">主要テーマ・カテゴリー別ガイド</h2>
+        <div style="display:grid;gap:1rem;margin-top:1rem;">
+          ${categoryHighlights.map(cat => `
+            <div style="padding:1rem;background:#f5f5f4;border-radius:0.75rem;border:1px solid #e7e5e4;">
+              <h3 style="font-size:1.1rem;font-weight:bold;margin:0 0 0.35rem;"><a href="${cat.url}" style="color:#047857;text-decoration:none;">${cat.name}</a></h3>
+              <p style="margin:0;font-size:0.9rem;color:#57534e;">${cat.desc}</p>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+
+      <section style="margin-bottom:2rem;">
+        <h2 style="font-size:1.35rem;font-weight:bold;color:#1c1917;margin-bottom:0.75rem;">自宅ガイド・人気解説記事一覧</h2>
+        <ul style="padding-left:1.25rem;list-style-type:disc;">
+          ${featuredArticlesList}
+        </ul>
+      </section>
+
+      <section style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid #e7e5e4;">
+        <h2 style="font-size:1.35rem;font-weight:bold;color:#1c1917;margin-bottom:1rem;">よくある質問（FAQ）</h2>
+        <div style="margin-bottom:1rem;padding:0.75rem 1rem;background:#f5f5f4;border-radius:0.5rem;">
+          <h3 style="font-size:1rem;font-weight:bold;margin:0 0 0.25rem;color:#1c1917;">Q. 「自宅」と「実家」「我が家」はどう使い分けますか？</h3>
+          <p style="margin:0;font-size:0.9rem;color:#57534e;">「自宅」は現在自分が日常的に生活の本拠としている住宅を客観的に指す言葉です。実家は両親が住む生家、我が家は親しみを持った主観的な言い回しです。履歴書等の公的書類では「自宅」を使用します。</p>
+        </div>
+        <div style="margin-bottom:1rem;padding:0.75rem 1rem;background:#f5f5f4;border-radius:0.5rem;">
+          <h3 style="font-size:1rem;font-weight:bold;margin:0 0 0.25rem;color:#1c1917;">Q. 自宅でできる安全な内職や在宅ワークの注意点は何ですか？</h3>
+          <p style="margin:0;font-size:0.9rem;color:#57534e;">初期費用（登録料・教材費）を前払い要求する業者は避け、契約内容や単価、納期、送料負担が明確な信頼できる発注元や自治体斡旋、大手クラウドソーシングを選ぶことが大切です。</p>
+        </div>
+        <div style="margin-bottom:1rem;padding:0.75rem 1rem;background:#f5f5f4;border-radius:0.5rem;">
+          <h3 style="font-size:1rem;font-weight:bold;margin:0 0 0.25rem;color:#1c1917;">Q. マンションやアパートの自宅で騒音を出さずに運動できますか？</h3>
+          <p style="margin:0;font-size:0.9rem;color:#57534e;">ヨガマットを敷き、かかとを床に強く打ち付けないスロースクワット、プランク、サイレントバーピー、ノンジャンプの有酸素運動を行うことで階下へ振動や音を響かせずに効果的な運動が可能です。</p>
+        </div>
+      </section>
+    </article>
+  `;
+}
+
 const STATIC_ROUTES: RouteConfig[] = [
   {
     path: '',
@@ -28,7 +118,7 @@ const STATIC_ROUTES: RouteConfig[] = [
     description: '【自宅 (jitakus.com)】自宅での仕事・内職・在宅ワーク、自宅での運動・筋トレ、できることや暮らしを分かりやすく解説。安心で快適な自宅生活とおうち時間をサポートします。',
     canonicalUrl: 'https://www.jitakus.com/',
     heading: '自宅 - 仕事・運動・できること総合ガイド (jitakus.com)',
-    contentHtml: '<p>自宅での仕事・内職・在宅ワーク、自宅での運動・筋トレ、できることや暮らしを分かりやすく解説する総合情報ポータル。</p>',
+    contentHtml: getHomeContentHtml(),
     changefreq: 'daily',
     priority: '1.0',
   },
@@ -377,7 +467,14 @@ export function generateStaticFiles() {
 
   // Ensure directories and generate index.html in each route directory
   for (const route of allRoutes) {
-    if (!route.path) continue; // Root is already dist/index.html
+    if (!route.path) {
+      // Pre-render the root home page into dist/index.html and 200.html so it is never blank!
+      const rootHtmlContent = generateHtmlForRoute(templateHtml, route);
+      fs.writeFileSync(path.join(distDir, 'index.html'), rootHtmlContent, 'utf-8');
+      fs.writeFileSync(path.join(distDir, '200.html'), rootHtmlContent, 'utf-8');
+      fs.writeFileSync(path.join(publicDir, '200.html'), rootHtmlContent, 'utf-8');
+      continue;
+    }
 
     const routeDir = path.join(distDir, route.path);
     fs.mkdirSync(routeDir, { recursive: true });
