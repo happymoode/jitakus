@@ -1,4 +1,0 @@
-# Cloudflare Pages & Workers Redirects
-# Static routes and clean directory URLs (/blog/.../) are served directly from dist/
-# SPA routing fallback is handled natively via 200.html and wrangler.jsonc assets configuration.
-# Note: Do not add "/* /index.html 200" here as it triggers Cloudflare error code 100324 (infinite loop).

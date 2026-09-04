@@ -468,11 +468,9 @@ export function generateStaticFiles() {
   // Ensure directories and generate index.html in each route directory
   for (const route of allRoutes) {
     if (!route.path) {
-      // Pre-render the root home page into dist/index.html and 200.html so it is never blank!
+      // Pre-render the root home page into dist/index.html so it is never blank!
       const rootHtmlContent = generateHtmlForRoute(templateHtml, route);
       fs.writeFileSync(path.join(distDir, 'index.html'), rootHtmlContent, 'utf-8');
-      fs.writeFileSync(path.join(distDir, '200.html'), rootHtmlContent, 'utf-8');
-      fs.writeFileSync(path.join(publicDir, '200.html'), rootHtmlContent, 'utf-8');
       continue;
     }
 
@@ -536,7 +534,19 @@ ${allRoutes
   fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXml, 'utf-8');
   fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapXml, 'utf-8');
 
-  console.log('✅ Static route HTML files and sitemap.xml generated successfully!');
+  // Clean any non-GitHub Pages files from dist
+  const filesToClean = ['_redirects', '_headers', '200.html', '.htaccess'];
+  for (const f of filesToClean) {
+    const p = path.join(distDir, f);
+    if (fs.existsSync(p)) fs.unlinkSync(p);
+  }
+
+  // Copy dist to docs/ so GitHub Pages "Deploy from a branch -> /docs" works automatically!
+  const docsDir = path.join(process.cwd(), 'docs');
+  fs.mkdirSync(docsDir, { recursive: true });
+  fs.cpSync(distDir, docsDir, { recursive: true });
+
+  console.log('✅ Static route HTML files, sitemap.xml, and docs/ generated successfully!');
 }
 
 generateStaticFiles();
