@@ -541,12 +541,20 @@ ${allRoutes
     if (fs.existsSync(p)) fs.unlinkSync(p);
   }
 
+  // Copy compiled assets to root ./assets so root / (root) deployment on GitHub Pages finds app.js and app.css
+  const rootAssetsDir = path.join(process.cwd(), 'assets');
+  const distAssetsDir = path.join(distDir, 'assets');
+  if (fs.existsSync(distAssetsDir)) {
+    fs.mkdirSync(rootAssetsDir, { recursive: true });
+    fs.cpSync(distAssetsDir, rootAssetsDir, { recursive: true });
+  }
+
   // Copy dist to docs/ so GitHub Pages "Deploy from a branch -> /docs" works automatically!
   const docsDir = path.join(process.cwd(), 'docs');
   fs.mkdirSync(docsDir, { recursive: true });
   fs.cpSync(distDir, docsDir, { recursive: true });
 
-  console.log('✅ Static route HTML files, sitemap.xml, and docs/ generated successfully!');
+  console.log('✅ Static route HTML files, sitemap.xml, root assets/, and docs/ generated successfully!');
 }
 
 generateStaticFiles();

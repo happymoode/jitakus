@@ -11,3 +11,4 @@ createRoot(document.getElementById('root')!).render(
     </ErrorBoundary>
   </StrictMode>,
 );
+(window as any).__reactMounted = true;
