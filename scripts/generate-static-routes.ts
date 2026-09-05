@@ -435,99 +435,11 @@ const articleRoutes: RouteConfig[] = ARTICLES.map((article) => {
 
 const allRoutes = [...STATIC_ROUTES, ...articleRoutes];
 
-function getJsonLdForRoute(route: RouteConfig): string {
-  // Find if this is an article
-  const foundArticle = ARTICLES.find(a => {
-    const jpSlug = getJapaneseSlug(a.slug);
-    return route.path === `blog/${jpSlug}` || route.path === `articles/${a.slug}` || route.path === `blog/${a.slug}`;
-  });
-
-  if (foundArticle) {
-    const jpSlug = getJapaneseSlug(foundArticle.slug);
-    const articleUrl = `https://www.jitakus.com/blog/${jpSlug}`;
-    
-    const articleSchema = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": foundArticle.title,
-      "description": foundArticle.summary,
-      "url": articleUrl,
-      "datePublished": `${foundArticle.publishedDate}T09:00:00+09:00`,
-      "dateModified": `${foundArticle.updatedDate}T12:00:00+09:00`,
-      "author": {
-        "@type": "Organization",
-        "name": "自宅 (jitakus.com) 編集部",
-        "url": "https://www.jitakus.com/"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "自宅 (jitakus.com)",
-        "url": "https://www.jitakus.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.jitakus.com/logo.svg"
-        }
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": articleUrl
-      },
-      "articleSection": foundArticle.categoryName,
-      "keywords": (foundArticle.targetKeywords || []).join(', ')
-    };
-
-    const breadcrumbSchema = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "自宅",
-          "item": "https://www.jitakus.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": foundArticle.categoryName,
-          "item": `https://www.jitakus.com/category/${foundArticle.category}`
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": foundArticle.title,
-          "item": articleUrl
-        }
-      ]
-    };
-
-    let faqSchema = null;
-    if (foundArticle.faqs && foundArticle.faqs.length > 0) {
-      faqSchema = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": foundArticle.faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
-      };
-    }
-
-    const schemas = [articleSchema, breadcrumbSchema];
-    if (faqSchema) schemas.push(faqSchema);
-
-    return schemas.map(s => `<script type="application/ld+json">\n${JSON.stringify(s, null, 2)}\n</script>`).join('\n');
-  }
-
-  return '';
-}
-
 function generateHtmlForRoute(templateHtml: string, route: RouteConfig): string {
   let html = templateHtml;
+
+  // Ensure any existing JSON-LD schema tags are removed
+  html = html.replace(/<script\s+type="application\/ld\+json">[\s\S]*?<\/script>/gi, '');
 
   // Replace title
   html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${route.title}</title>`);
@@ -567,12 +479,6 @@ function generateHtmlForRoute(templateHtml: string, route: RouteConfig): string 
     /<meta name="twitter:description" content="[\s\S]*?"\s*\/?>/i,
     `<meta name="twitter:description" content="${route.description.replace(/"/g, '&quot;')}" />`
   );
-
-  // Inject Route-specific JSON-LD Structured Data
-  const jsonLd = getJsonLdForRoute(route);
-  if (jsonLd) {
-    html = html.replace('</head>', `${jsonLd}\n</head>`);
-  }
 
   // Inject Pre-rendered SEO crawl content inside root div so crawlers read it instantly
   if (route.heading || route.contentHtml) {
