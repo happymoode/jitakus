@@ -8,7 +8,7 @@
       // GitHub Pages / Static SPA Redirection
       var isGitHubPages = window.location.hostname.endsWith('github.io');
       var pathParts = window.location.pathname.split('/').filter(Boolean);
-      var pathSegmentsToKeep = (isGitHubPages && pathParts.length > 0 && !['blog', 'category', 'tool', 'articles', 'privacy', 'about', 'contact', 'terms'].includes(pathParts[0])) ? 1 : 0;
+      var pathSegmentsToKeep = (isGitHubPages && pathParts.length > 0 && !['blog', 'category', 'tool', 'articles', 'privacy', 'privacy-policy', 'about', 'about-us', 'contact', 'contact-us', 'terms', 'terms-of-service'].includes(pathParts[0])) ? 1 : 0;
       var l = window.location;
       var dest = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
         l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?p=/' +
@@ -19,17 +19,24 @@
     </script>
     <style>
       body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf9f6; color: #1c1917; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
-      .card { background: #ffffff; border: 1px solid #e7e5e4; border-radius: 16px; padding: 32px; max-width: 480px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+      .card { background: #ffffff; border: 1px solid #e7e5e4; border-radius: 16px; padding: 32px; max-width: 520px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
       h1 { font-size: 20px; font-weight: bold; margin: 0 0 12px; color: #047857; }
       p { font-size: 14px; color: #57534e; line-height: 1.6; margin: 0 0 20px; }
-      a { display: inline-block; background: #047857; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 500; font-size: 14px; }
+      .links { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+      a { display: inline-block; background: #047857; color: #ffffff; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 500; font-size: 13px; }
+      a.secondary { background: #f5f5f4; color: #44403c; border: 1px solid #d6d3d1; }
     </style>
   </head>
   <body>
     <div class="card">
       <h1>自宅 (jitakus.com)</h1>
-      <p>ページを読み込んでいます... 自動的に移動しない場合は、下記のボタンをクリックしてください。</p>
-      <a href="https://www.jitakus.com/">自宅トップページへ移動</a>
+      <p>ページを読み込んでいます... 自動的に移動しない場合は、下記のリンクをクリックしてください。</p>
+      <div class="links">
+        <a href="https://www.jitakus.com/">自宅トップページ</a>
+        <a href="https://www.jitakus.com/privacy" class="secondary">プライバシーポリシー</a>
+        <a href="https://www.jitakus.com/about" class="secondary">運営者情報</a>
+        <a href="https://www.jitakus.com/contact" class="secondary">お問い合わせ</a>
+      </div>
     </div>
   </body>
 </html>

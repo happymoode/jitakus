@@ -111,6 +111,104 @@ function getHomeContentHtml(): string {
   `;
 }
 
+function getPrivacyPolicyContentHtml(): string {
+  return `
+    <article style="line-height:1.8;color:#292524;">
+      <p style="margin-bottom:1.5rem;color:#57534e;">jitakus.com（以下「当サイト」）は、ユーザーの皆様に安心してご利用いただけるよう、個人情報の保護に関する法律（個人情報保護法）およびGoogle AdSense等の広告配信・アクセス解析ポリシーを遵守し、以下のとおりプライバシーポリシーを定めます。</p>
+      
+      <section style="margin-bottom:2rem;background:#ffffff;padding:1.5rem;border-radius:0.75rem;border:1px solid #e7e5e4;">
+        <h2 style="font-size:1.25rem;font-weight:bold;color:#1c1917;margin-top:0;margin-bottom:0.75rem;border-left:4px solid #047857;padding-left:0.75rem;">1. 個人情報の収集と利用目的</h2>
+        <p>当サイトでは、お問い合わせフォームのご利用時やメールでのご連絡時に、お名前（ハンドルネーム含む）やメールアドレス等の個人情報をご入力いただく場合がございます。</p>
+        <p><strong>収集した個人情報の利用目的：</strong></p>
+        <ul style="padding-left:1.5rem;margin:0.5rem 0;">
+          <li>お問い合わせ・ご意見に対する回答や確認のご連絡のため</li>
+          <li>記事内容の正確性向上およびサイト運営の利便性向上のため</li>
+          <li>不正アクセスやスパム行為の防止およびセキュリティ維持のため</li>
+        </ul>
+        <p>取得した個人情報は上記目的以外には一切使用いたしません。</p>
+      </section>
+
+      <section style="margin-bottom:2rem;background:#ffffff;padding:1.5rem;border-radius:0.75rem;border:1px solid #e7e5e4;">
+        <h2 style="font-size:1.25rem;font-weight:bold;color:#1c1917;margin-top:0;margin-bottom:0.75rem;border-left:4px solid #047857;padding-left:0.75rem;">2. Cookie（クッキー）の利用について</h2>
+        <p>当サイトでは、サービスの向上、アクセス状況の解析、および効果的な広告配信のためにCookie（クッキー）を使用しています。</p>
+        <p>Cookieとは、Webサイトを閲覧した際にお客様のブラウザとサーバーとの間で送受信され、お客様の端末に記録される情報です。なお、Cookieに含まれる情報には氏名、住所、電話番号、メールアドレスなどの個人を直接特定する情報は一切含まれておりません。</p>
+        <p>お客様ご自身でブラウザの設定を変更することにより、Cookieの受け入れを拒否（無効化）することも可能です。設定方法は各ブラウザのヘルプをご参照ください。</p>
+      </section>
+
+      <section style="margin-bottom:2rem;background:#ffffff;padding:1.5rem;border-radius:0.75rem;border:1px solid #e7e5e4;">
+        <h2 style="font-size:1.25rem;font-weight:bold;color:#1c1917;margin-top:0;margin-bottom:0.75rem;border-left:4px solid #047857;padding-left:0.75rem;">3. アクセス解析ツール（Google Analytics 4）</h2>
+        <p>当サイトでは、Googleが提供するアクセス解析ツール「Google Analytics 4（GA4）」を利用しています。Google Analyticsはトラフィックデータの収集のためにCookieを使用しています。このデータは匿名で収集されており、個人を特定するものではありません。</p>
+        <p>Google社によるアクセス情報の収集方法および利用方法については、Googleポリシーと規約をご確認ください。</p>
+      </section>
+
+      <section style="margin-bottom:2rem;background:#ffffff;padding:1.5rem;border-radius:0.75rem;border:1px solid #e7e5e4;">
+        <h2 style="font-size:1.25rem;font-weight:bold;color:#1c1917;margin-top:0;margin-bottom:0.75rem;border-left:4px solid #047857;padding-left:0.75rem;">4. 第三者配信広告サービス（Google AdSense等）</h2>
+        <p>当サイトでは、第三者配信の広告サービス（Google AdSense等）を利用する場合があります。このような広告配信事業者は、ユーザーの興味に応じた商品やサービスの広告を表示するため、当サイトや他サイトへのアクセスに関する情報「Cookie」（氏名、住所、メール アドレス、電話番号は含まれません）を使用することがあります。</p>
+        <p>パーソナライズ広告の無効化を希望される場合は、Google広告設定より無効化していただけます。</p>
+      </section>
+
+      <section style="margin-bottom:2rem;background:#ffffff;padding:1.5rem;border-radius:0.75rem;border:1px solid #e7e5e4;">
+        <h2 style="font-size:1.25rem;font-weight:bold;color:#1c1917;margin-top:0;margin-bottom:0.75rem;border-left:4px solid #047857;padding-left:0.75rem;">5. 個人情報の第三者提供について</h2>
+        <p>当サイトでは、お預かりした個人情報を適切に管理し、法令に基づき開示が必要となる場合を除き、あらかじめご本人の同意を得ることなく第三者に開示・提供いたしません。</p>
+      </section>
+
+      <section style="margin-bottom:2rem;background:#ffffff;padding:1.5rem;border-radius:0.75rem;border:1px solid #e7e5e4;">
+        <h2 style="font-size:1.25rem;font-weight:bold;color:#1c1917;margin-top:0;margin-bottom:0.75rem;border-left:4px solid #047857;padding-left:0.75rem;">6. 免責事項</h2>
+        <p>当サイトに掲載されている情報の正確性については万全を期しておりますが、その内容の正確性、有用性、安全性について保証するものではありません。当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</p>
+      </section>
+
+      <section style="margin-bottom:2rem;background:#ffffff;padding:1.5rem;border-radius:0.75rem;border:1px solid #e7e5e4;">
+        <h2 style="font-size:1.25rem;font-weight:bold;color:#1c1917;margin-top:0;margin-bottom:0.75rem;border-left:4px solid #047857;padding-left:0.75rem;">7. プライバシーポリシーの改定およびお問い合わせ</h2>
+        <p>当サイトは、法令の制定・改定やサービス内容の変更等に伴い、本プライバシーポリシーの内容を事前の予告なく改定することがあります。</p>
+        <p>本ポリシーに関するお問い合わせは <a href="/contact" style="color:#047857;text-decoration:underline;font-weight:bold;">お問い合わせページ</a> または info@jitakus.com までご連絡ください。</p>
+        <p style="margin-top:1rem;color:#78716c;font-size:0.9rem;">制定日：2026年1月15日 / 最終改定日：2026年8月18日 / 運営責任者：jitakus.com 編集部</p>
+      </section>
+    </article>
+  `;
+}
+
+function getAboutContentHtml(): string {
+  return `
+    <article style="line-height:1.8;color:#292524;">
+      <section style="margin-bottom:2rem;background:#ffffff;padding:1.5rem;border-radius:0.75rem;border:1px solid #e7e5e4;">
+        <h2 style="font-size:1.25rem;font-weight:bold;color:#1c1917;margin-top:0;margin-bottom:0.75rem;border-left:4px solid #047857;padding-left:0.75rem;">サイト概要</h2>
+        <p><strong>jitakus.com（自宅総合ポータル）</strong>は、「自宅で過ごす時間をより豊かで安心、快適に」をテーマに、在宅ワーク・内職・自宅での運動・暮らしの工夫・所要時間ナビなど、日常生活に直結する実践的な知恵を提供する情報サイトです。</p>
+        <p><strong>サイト名：</strong>自宅 - 仕事・運動・できること総合ガイド（jitakus.com）<br/>
+        <strong>URL：</strong>https://www.jitakus.com/<br/>
+        <strong>運営主体：</strong>jitakus.com 編集部<br/>
+        <strong>連絡先：</strong>info@jitakus.com</p>
+      </section>
+    </article>
+  `;
+}
+
+function getContactContentHtml(): string {
+  return `
+    <article style="line-height:1.8;color:#292524;">
+      <section style="margin-bottom:2rem;background:#ffffff;padding:1.5rem;border-radius:0.75rem;border:1px solid #e7e5e4;">
+        <h2 style="font-size:1.25rem;font-weight:bold;color:#1c1917;margin-top:0;margin-bottom:0.75rem;border-left:4px solid #047857;padding-left:0.75rem;">お問い合わせ窓口</h2>
+        <p>当サイトに関するご意見・ご感想・掲載内容に関するお問い合わせは、以下のメールアドレスまでお気軽にご連絡ください。</p>
+        <p style="margin:1rem 0;padding:1rem;background:#f5f5f4;border-radius:0.5rem;font-family:monospace;font-size:1.1rem;color:#047857;">
+          info@jitakus.com
+        </p>
+        <p style="font-size:0.9rem;color:#78716c;">※通常2〜3営業日以内にご返信いたします。</p>
+      </section>
+    </article>
+  `;
+}
+
+function getTermsContentHtml(): string {
+  return `
+    <article style="line-height:1.8;color:#292524;">
+      <section style="margin-bottom:2rem;background:#ffffff;padding:1.5rem;border-radius:0.75rem;border:1px solid #e7e5e4;">
+        <h2 style="font-size:1.25rem;font-weight:bold;color:#1c1917;margin-top:0;margin-bottom:0.75rem;border-left:4px solid #047857;padding-left:0.75rem;">利用規約および免責事項</h2>
+        <p>当サイトのコンテンツの著作権は jitakus.com 編集部に帰属します。無断転載・複製を固く禁じます。</p>
+        <p>掲載情報の正確性には十分配慮しておりますが、内容の最新性・完全性を保証するものではありません。各サービスやツールの利用は自己責任にてお願いいたします。</p>
+      </section>
+    </article>
+  `;
+}
+
 const STATIC_ROUTES: RouteConfig[] = [
   {
     path: '',
@@ -128,7 +226,17 @@ const STATIC_ROUTES: RouteConfig[] = [
     description: 'jitakus.com（自宅総合ポータル）のプライバシーポリシーです。個人情報の保護、Cookie利用、アクセス解析、広告配信（Google AdSense等）に関する方針を明記しています。',
     canonicalUrl: 'https://www.jitakus.com/privacy',
     heading: 'プライバシーポリシー（Privacy Policy）',
-    contentHtml: '<p>jitakus.com（以下「当サイト」）における個人情報の保護方針、Cookieの使用、アクセス解析ツール、広告配信（Google AdSense等）に関する利用規約を定めています。</p>',
+    contentHtml: getPrivacyPolicyContentHtml(),
+    changefreq: 'monthly',
+    priority: '0.8',
+  },
+  {
+    path: 'privacy-policy',
+    title: 'プライバシーポリシー | 自宅 (jitakus.com)',
+    description: 'jitakus.com（自宅総合ポータル）のプライバシーポリシーです。個人情報の保護、Cookie利用、アクセス解析、広告配信（Google AdSense等）に関する方針を明記しています。',
+    canonicalUrl: 'https://www.jitakus.com/privacy',
+    heading: 'プライバシーポリシー（Privacy Policy）',
+    contentHtml: getPrivacyPolicyContentHtml(),
     changefreq: 'monthly',
     priority: '0.8',
   },
@@ -138,7 +246,17 @@ const STATIC_ROUTES: RouteConfig[] = [
     description: 'jitakus.com（自宅総合ポータル）のサイト概要、運営理念、編集方針、サポート窓口についてご案内します。',
     canonicalUrl: 'https://www.jitakus.com/about',
     heading: '当サイトについて（運営者情報・編集方針）',
-    contentHtml: '<p>jitakus.comは、自宅での生活・在宅ワーク・運動・趣味・暮らしを豊かにするための実用的な情報を提供する総合情報ポータルサイトです。</p>',
+    contentHtml: getAboutContentHtml(),
+    changefreq: 'monthly',
+    priority: '0.8',
+  },
+  {
+    path: 'about-us',
+    title: '当サイトについて（運営者情報） | 自宅 (jitakus.com)',
+    description: 'jitakus.com（自宅総合ポータル）のサイト概要、運営理念、編集方針、サポート窓口についてご案内します。',
+    canonicalUrl: 'https://www.jitakus.com/about',
+    heading: '当サイトについて（運営者情報・編集方針）',
+    contentHtml: getAboutContentHtml(),
     changefreq: 'monthly',
     priority: '0.8',
   },
@@ -148,7 +266,17 @@ const STATIC_ROUTES: RouteConfig[] = [
     description: 'jitakus.com（自宅総合ポータル）のお問い合わせ窓口です。ご質問、情報提供、取材依頼、広告掲載などのご連絡はこちらから。',
     canonicalUrl: 'https://www.jitakus.com/contact',
     heading: 'お問い合わせ（Contact Us）',
-    contentHtml: '<p>当サイトに関するご意見・ご質問・情報提供・広告掲載のお問い合わせは info@jitakus.com までお気軽にご連絡ください。</p>',
+    contentHtml: getContactContentHtml(),
+    changefreq: 'monthly',
+    priority: '0.8',
+  },
+  {
+    path: 'contact-us',
+    title: 'お問い合わせ | 自宅 (jitakus.com)',
+    description: 'jitakus.com（自宅総合ポータル）のお問い合わせ窓口です。ご質問、情報提供、取材依頼、広告掲載などのご連絡はこちらから。',
+    canonicalUrl: 'https://www.jitakus.com/contact',
+    heading: 'お問い合わせ（Contact Us）',
+    contentHtml: getContactContentHtml(),
     changefreq: 'monthly',
     priority: '0.8',
   },
@@ -158,7 +286,17 @@ const STATIC_ROUTES: RouteConfig[] = [
     description: 'jitakus.com（自宅総合ポータル）の利用規約および免責事項を掲載しています。',
     canonicalUrl: 'https://www.jitakus.com/terms',
     heading: '利用規約および免責事項',
-    contentHtml: '<p>当サイトのご利用にあたっての利用規約、著作権、免責事項について定めています。</p>',
+    contentHtml: getTermsContentHtml(),
+    changefreq: 'monthly',
+    priority: '0.7',
+  },
+  {
+    path: 'terms-of-service',
+    title: '利用規約・免責事項 | 自宅 (jitakus.com)',
+    description: 'jitakus.com（自宅総合ポータル）の利用規約および免責事項を掲載しています。',
+    canonicalUrl: 'https://www.jitakus.com/terms',
+    heading: '利用規約および免責事項',
+    contentHtml: getTermsContentHtml(),
     changefreq: 'monthly',
     priority: '0.7',
   },
@@ -479,7 +617,7 @@ export function generateStaticFiles() {
   const templateHtml = fs.readFileSync(templatePath, 'utf-8');
   console.log(`Generating static route HTML files for ${allRoutes.length} routes...`);
 
-  // Ensure directories and generate index.html in each route directory
+  // Ensure directories and generate index.html and .html in each route directory
   for (const route of allRoutes) {
     if (!route.path) {
       // Pre-render the root home page into dist/index.html so it is never blank!
@@ -488,18 +626,28 @@ export function generateStaticFiles() {
       continue;
     }
 
+    const htmlContent = generateHtmlForRoute(templateHtml, route);
+
+    // 1. Write /path/index.html
     const routeDir = path.join(distDir, route.path);
     fs.mkdirSync(routeDir, { recursive: true });
-
-    const htmlContent = generateHtmlForRoute(templateHtml, route);
     fs.writeFileSync(path.join(routeDir, 'index.html'), htmlContent, 'utf-8');
 
-    // Also write encoded variant if non-ASCII (for direct URI encoded crawlers)
+    // 2. Also write /path.html (supports servers / crawlers requesting path.html directly)
+    const flatHtmlPath = path.join(distDir, `${route.path}.html`);
+    fs.mkdirSync(path.dirname(flatHtmlPath), { recursive: true });
+    fs.writeFileSync(flatHtmlPath, htmlContent, 'utf-8');
+
+    // 3. Also write encoded variant if non-ASCII (for direct URI encoded crawlers)
     const encodedPath = route.path.split('/').map(segment => encodeURIComponent(segment)).join('/');
     if (encodedPath !== route.path) {
       const encodedRouteDir = path.join(distDir, encodedPath);
       fs.mkdirSync(encodedRouteDir, { recursive: true });
       fs.writeFileSync(path.join(encodedRouteDir, 'index.html'), htmlContent, 'utf-8');
+
+      const encodedFlatHtmlPath = path.join(distDir, `${encodedPath}.html`);
+      fs.mkdirSync(path.dirname(encodedFlatHtmlPath), { recursive: true });
+      fs.writeFileSync(encodedFlatHtmlPath, htmlContent, 'utf-8');
     }
   }
 
@@ -518,27 +666,61 @@ export function generateStaticFiles() {
     const dir1 = path.join(distDir, 'articles', article.slug);
     fs.mkdirSync(dir1, { recursive: true });
     fs.writeFileSync(path.join(dir1, 'index.html'), htmlContent, 'utf-8');
+    fs.writeFileSync(path.join(distDir, 'articles', `${article.slug}.html`), htmlContent, 'utf-8');
 
     const dir2 = path.join(distDir, 'blog', article.slug);
     fs.mkdirSync(dir2, { recursive: true });
     fs.writeFileSync(path.join(dir2, 'index.html'), htmlContent, 'utf-8');
+    fs.writeFileSync(path.join(distDir, 'blog', `${article.slug}.html`), htmlContent, 'utf-8');
   }
 
-  // Ensure .nojekyll, robots.txt, CNAME are properly present
+  // Ensure .nojekyll, robots.txt, 404.html, CNAME are properly present
   fs.writeFileSync(path.join(distDir, '.nojekyll'), '', 'utf-8');
   fs.writeFileSync(path.join(publicDir, '.nojekyll'), '', 'utf-8');
 
-  // Generate XML Sitemap
+  // Copy 404.html from public
+  const public404 = path.join(publicDir, '404.html');
+  if (fs.existsSync(public404)) {
+    fs.copyFileSync(public404, path.join(distDir, '404.html'));
+  }
+
+  // Copy robots.txt from public
+  const publicRobots = path.join(publicDir, 'robots.txt');
+  if (fs.existsSync(publicRobots)) {
+    fs.copyFileSync(publicRobots, path.join(distDir, 'robots.txt'));
+  }
+
+  // Copy CNAME from root or public
+  const rootCname = path.join(process.cwd(), 'CNAME');
+  if (fs.existsSync(rootCname)) {
+    fs.copyFileSync(rootCname, path.join(distDir, 'CNAME'));
+  }
+
+  // Generate XML Sitemap with unique canonical URLs
   const today = new Date().toISOString().split('T')[0];
+  const seenCanonicalUrls = new Set<string>();
+  const sitemapEntries: { loc: string; changefreq: string; priority: string }[] = [];
+
+  for (const r of allRoutes) {
+    if (!seenCanonicalUrls.has(r.canonicalUrl)) {
+      seenCanonicalUrls.add(r.canonicalUrl);
+      sitemapEntries.push({
+        loc: r.canonicalUrl,
+        changefreq: r.changefreq || 'weekly',
+        priority: r.priority || '0.8',
+      });
+    }
+  }
+
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${allRoutes
+${sitemapEntries
   .map(
-    (r) => `  <url>
-    <loc>${r.canonicalUrl}</loc>
+    (e) => `  <url>
+    <loc>${e.loc}</loc>
     <lastmod>${today}</lastmod>
-    <changefreq>${r.changefreq || 'weekly'}</changefreq>
-    <priority>${r.priority || '0.8'}</priority>
+    <changefreq>${e.changefreq}</changefreq>
+    <priority>${e.priority}</priority>
   </url>`
   )
   .join('\n')}
@@ -555,7 +737,7 @@ ${allRoutes
     if (fs.existsSync(p)) fs.unlinkSync(p);
   }
 
-  // Copy compiled assets to root ./assets so root / (root) deployment on GitHub Pages finds app.js and app.css
+  // 1. Copy compiled assets to root ./assets so root / (root) deployment on GitHub Pages finds app.js and app.css
   const rootAssetsDir = path.join(process.cwd(), 'assets');
   const distAssetsDir = path.join(distDir, 'assets');
   if (fs.existsSync(distAssetsDir)) {
@@ -563,12 +745,54 @@ ${allRoutes
     fs.cpSync(distAssetsDir, rootAssetsDir, { recursive: true });
   }
 
-  // Copy dist to docs/ so GitHub Pages "Deploy from a branch -> /docs" works automatically!
+  // 2. Copy dist to docs/ so GitHub Pages "Deploy from a branch -> /docs" works automatically!
   const docsDir = path.join(process.cwd(), 'docs');
   fs.mkdirSync(docsDir, { recursive: true });
   fs.cpSync(distDir, docsDir, { recursive: true });
 
-  console.log('✅ Static route HTML files, sitemap.xml, root assets/, and docs/ generated successfully!');
+  // 3. Copy key static route directories and files to root directory!
+  // This guarantees that whether GitHub Pages is configured to serve from / (root) or /docs, every page resolves with HTTP 200 OK!
+  const itemsToSyncToRoot = [
+    'privacy',
+    'privacy.html',
+    'privacy-policy',
+    'privacy-policy.html',
+    'about',
+    'about.html',
+    'about-us',
+    'about-us.html',
+    'contact',
+    'contact.html',
+    'contact-us',
+    'contact-us.html',
+    'terms',
+    'terms.html',
+    'terms-of-service',
+    'terms-of-service.html',
+    'category',
+    'blog',
+    'articles',
+    'tool',
+    'sitemap.xml',
+    'robots.txt',
+    '.nojekyll',
+    '404.html',
+  ];
+
+  for (const item of itemsToSyncToRoot) {
+    const srcPath = path.join(distDir, item);
+    const destPath = path.join(process.cwd(), item);
+    if (fs.existsSync(srcPath)) {
+      if (fs.statSync(srcPath).isDirectory()) {
+        fs.mkdirSync(destPath, { recursive: true });
+        fs.cpSync(srcPath, destPath, { recursive: true });
+      } else {
+        fs.copyFileSync(srcPath, destPath);
+      }
+    }
+  }
+
+  console.log('✅ Static route HTML files, sitemap.xml, root assets/, docs/, and root routes generated successfully!');
 }
 
 generateStaticFiles();

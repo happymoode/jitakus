@@ -43,6 +43,7 @@ function parseLocationToState(): { category: NavView; articleSlug: string | null
 
   // Check path or hash
   const effective = rawHash ? `/${rawHash}` : rawPath;
+  const cleanPath = effective.split('?')[0].split('#')[0].replace(/\/+$/, '').toLowerCase();
 
   // Blog & Article routing: /blog/:slug, /word/:slug, /article/:slug (supports subdirectories like /reponame/blog/:slug)
   const blogMatch = effective.match(/(?:^|\/)(?:blog|word|article)\/([^/?#]+)/);
@@ -60,15 +61,51 @@ function parseLocationToState(): { category: NavView; articleSlug: string | null
   }
 
   // Tool routing: /tool/:toolName
-  if (effective.includes('/tool/distance')) return { category: 'nav-tool', articleSlug: null };
-  if (effective.includes('/tool/work')) return { category: 'work-tool', articleSlug: null };
-  if (effective.includes('/tool/ai-advisor')) return { category: 'ai-advisor', articleSlug: null };
+  if (cleanPath.includes('/tool/distance')) return { category: 'nav-tool', articleSlug: null };
+  if (cleanPath.includes('/tool/work')) return { category: 'work-tool', articleSlug: null };
+  if (cleanPath.includes('/tool/ai-advisor')) return { category: 'ai-advisor', articleSlug: null };
 
-  // Static / Legal pages
-  if (effective.endsWith('/about')) return { category: 'about', articleSlug: null };
-  if (effective.endsWith('/privacy')) return { category: 'privacy', articleSlug: null };
-  if (effective.endsWith('/terms')) return { category: 'terms', articleSlug: null };
-  if (effective.endsWith('/contact')) return { category: 'contact', articleSlug: null };
+  // Static / Legal pages (handles /privacy, /privacy/, /privacy.html, /privacy-policy, etc.)
+  if (
+    cleanPath === '/privacy' ||
+    cleanPath.endsWith('/privacy') ||
+    cleanPath.endsWith('/privacy-policy') ||
+    cleanPath.endsWith('/privacypolicy') ||
+    cleanPath.endsWith('/privacy.html') ||
+    cleanPath.endsWith('/privacy-policy.html')
+  ) {
+    return { category: 'privacy', articleSlug: null };
+  }
+
+  if (
+    cleanPath === '/about' ||
+    cleanPath.endsWith('/about') ||
+    cleanPath.endsWith('/about-us') ||
+    cleanPath.endsWith('/about.html') ||
+    cleanPath.endsWith('/about-us.html')
+  ) {
+    return { category: 'about', articleSlug: null };
+  }
+
+  if (
+    cleanPath === '/terms' ||
+    cleanPath.endsWith('/terms') ||
+    cleanPath.endsWith('/terms-of-service') ||
+    cleanPath.endsWith('/terms.html') ||
+    cleanPath.endsWith('/terms-of-service.html')
+  ) {
+    return { category: 'terms', articleSlug: null };
+  }
+
+  if (
+    cleanPath === '/contact' ||
+    cleanPath.endsWith('/contact') ||
+    cleanPath.endsWith('/contact-us') ||
+    cleanPath.endsWith('/contact.html') ||
+    cleanPath.endsWith('/contact-us.html')
+  ) {
+    return { category: 'contact', articleSlug: null };
+  }
 
   // Default Home
   return { category: 'all', articleSlug: null };
