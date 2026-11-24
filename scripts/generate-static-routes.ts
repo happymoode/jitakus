@@ -683,6 +683,7 @@ ${sitemapEntries
     'robots.txt',
     '.nojekyll',
     '404.html',
+    'googled7805f403b401688.html',
   ];
 
   for (const item of itemsToSyncToRoot) {
